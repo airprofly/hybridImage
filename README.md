@@ -3,7 +3,7 @@
 # 🔧 混合图像生成系统
 ### Hybrid Image Generation System
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/airprofly/hybridImage) [![Star](https://img.shields.io/github/stars/airprofly/hybridImage?style=social)](https://github.com/airprofly/hybridImage/stargazers) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [![Python 3.12](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/) [![PyTorch](https://img.shields.io/badge/PyTorch-2.9+-orange.svg)](https://pytorch.org/)
 
@@ -29,19 +29,6 @@
 - ✅ **双框架实现**：提供 NumPy 和 PyTorch 两种完整实现
 - ✅ **性能对比**：内置时间比较脚本，分析两种实现的性能差异
 - ✅ **灵活配置**：通过 YAML 配置文件管理图像对和截止频率参数
-
----
-
-## 🛠️ 技术栈
-
-| 类别 | 技术 |
-|------|------|
-| **编程语言** | Python 3.12+ |
-| **深度学习框架** | PyTorch 2.9+ |
-| **数值计算** | NumPy 2.3+ |
-| **数据可视化** | Matplotlib 3.10+ |
-| **配置管理** | PyYAML 6.0+ |
-| **环境管理** | Conda/Miniconda |
 
 ---
 
@@ -250,6 +237,8 @@ $$
 
 ## 📊 效果展示
 
+### 图像混合结果
+
 以 **爱因斯坦 × 玛丽莲·梦露** 为例（经典混合图像组合）：
 
 | 🔵 低频分量（爱因斯坦） | 🟡 高频分量（玛丽莲） | 🟢 混合图像 |
@@ -260,6 +249,20 @@ $$
 - **近处观察**：贴近屏幕或放大查看，可见高频图像（玛丽莲）的细节
 - **远处观察**：远离屏幕或缩小查看，可见低频图像（爱因斯坦）的轮廓
 - **眯眼观察**：眯起眼睛可模拟低通滤波效果
+
+### 性能对比结果
+
+本项目对 NumPy 和 PyTorch 两种实现进行了性能测试，测试环境为 5 对图像，每轮测试 3 次：
+
+| 实现方式 | 平均时间 | 标准差 | 相对性能 |
+|---------|---------|--------|---------|
+| NumPy | 2.4300 秒 | 0.0619 秒 | 基准 |
+| PyTorch | 0.0784 秒 | 0.0656 秒 | **31.0x 更快** |
+
+**结论**：
+- 🚀 **PyTorch 实现显著优于 NumPy**，速度提升约 **31 倍**
+- 💡 PyTorch 的 GPU 加速能力和优化的卷积运算带来了巨大性能优势
+- 📊 标准差分析显示两种实现的稳定性相当，PyTorch 的首轮预热后性能更加稳定
 
 ---
 
