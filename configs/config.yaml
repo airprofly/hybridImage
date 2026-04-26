@@ -1,0 +1,22 @@
+paths:
+  data_dir: ./data
+  output_dir: ./outputs/hybrid
+  image_pairs:
+    - image_a: 1a_dog.bmp
+      image_b: 1b_cat.bmp
+    - image_a: 2a_motorcycle.bmp
+      image_b: 2b_bicycle.bmp
+    - image_a: 3a_plane.bmp
+      image_b: 3b_bird.bmp
+    - image_a: 4a_einstein.bmp
+      image_b: 4b_marilyn.bmp
+    - image_a: 5a_submarine.bmp
+      image_b: 5b_fish.bmp
+
+hybrid:
+  best_cutoffs:
+    - 5      # Pair 1: dog & cat - 较高值保留狗的轮廓
+    - 3      # Pair 2: motorcycle & bicycle - 中等值平衡两者
+    - 5      # Pair 3: plane & bird - 较高值突出飞机
+    - 3      # Pair 4: einstein & marilyn - 经典组合，中等值最佳
+    - 4      # Pair 5: submarine & fish - 略高值保留潜艇形状
